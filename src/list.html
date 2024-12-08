@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="главная.html" class="logo" id="logo">
+            <a href="index.html" class="logo" id="logo">
                 <img src="img/logo.png" alt="Логотип" width="60px" height="60px">
             </a>
             <div class="menu-icon" id="menu-icon">&#9776;</div>
@@ -49,86 +49,66 @@
     </a>
 
     
-    <table id="taskTable">
-        <thead>
-            <tr>
-                <th>Задачи</th>
-                <th>В работе</th>
-                <th>Выполненные</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>
+    <div class="table">
+        <div class="task-column" id="toDoColumn">
+            <h3>Задачи</h3>
+            <ul class="task-list" id="toDoList">
+                <li class="task-item">
                     <span class="checkbox">
                         <input type="checkbox">
                     </span>
                     Вынести мусор
                     <button class="delete-button">Удалить</button>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>
+                </li>
+                <li class="task-item">
                     <span class="checkbox">
                         <input type="checkbox">
                     </span>
                     Записаться к врачу
                     <button class="delete-button">Удалить</button>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="in-progress">
+                </li>
+            </ul>
+        </div>
+
+        <div class="task-column" id="inProgressColumn">
+            <h3>В работе</h3>
+            <ul class="task-list" id="inProgressList">
+                <li class="task-item">
                     <span class="checkbox">
                         <input type="checkbox">
                     </span>
                     Сдать лабу по ОВР
                     <button class="delete-button">Удалить</button>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="in-progress">
+                </li>
+                <li class="task-item">
                     <span class="checkbox">
                         <input type="checkbox">
                     </span>
                     Разобрать первые 3 лабораторные по численным методам
                     <button class="delete-button">Удалить</button>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="in-progress">
+                </li>
+                <li class="task-item">
                     <span class="checkbox">
                         <input type="checkbox">
                     </span>
                     Отчет для курсовой
                     <button class="delete-button">Удалить</button>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td class="completed">
+                </li>
+            </ul>
+        </div>
+        <div class="task-column" id="completedColumn">
+            <h3>Выполненные</h3>
+            <ul class="task-list" id="completedList">
+                <li class="task-item">
                     <span class="checkbox">
                         <input type="checkbox" checked disabled>
                     </span>
                     Разобрать полку с книгами
                     <button class="delete-button">Удалить</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 </body>
-
-
 </html>

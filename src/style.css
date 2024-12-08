@@ -53,13 +53,6 @@ a button:hover {
     background-color: #272626;
 }
 
-table {
-    border-collapse: collapse;
-    font-size: 20px;
-    width: 80%;
-    margin: 10px auto;
-}
-
 th,
 td {
     padding: 15px;
@@ -199,6 +192,7 @@ main {
     color: #333333;
 }
 
+   
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
@@ -236,7 +230,74 @@ main {
     .content {
         flex-direction: column;
     }
+    h3 {
+        font-size: 20px; /* Уменьшаем размер заголовка */
+    }
     
+    .table {
+        flex-direction: column; /* Смена направления на вертикальное */
+        align-items: center; /* Центрирование колонок по горизонтали */
+    }
+
+    .task-column {
+        width: 100%; /* Колонки занимают всю ширину */
+        max-width: none; /* Убираем максимальную ширину для маленьких экранов */
+        margin-bottom: 20px; /* Отступ между колонками */
+    }
+
+}
+
+@media (max-width: 375px) {
+    .nav-links {
+        position: fixed;
+        background-color: #000;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        transform: translateX(200%);
+        z-index: 1000;
+        font-size: 28px;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .menu-icon {
+        display: block;
+        margin-right: 10px;
+        font-size: 40px;
+        color: #F0F0F0;
+    }
+
+    .close-icon {
+        display: block;
+        font-size: 40px;
+        color: #F0F0F0;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+    h3 {
+        font-size: 20px; /* Уменьшаем размер заголовка */
+    }
+    
+    .table {
+        flex-direction: column; /* Смена направления на вертикальное */
+        align-items: center; /* Центрирование колонок по горизонтали */
+    }
+
+    .task-column {
+        width: 100%; /* Колонки занимают всю ширину */
+        max-width: none; /* Убираем максимальную ширину для маленьких экранов */
+        margin-bottom: 20px; /* Отступ между колонками */
+    }
 
 }
 
@@ -253,11 +314,12 @@ main {
 }
 
 .main-image {
-    max-width: 750px;
-    height: auto;
-    align-self: center;
-    margin-bottom: 20px;
+    max-width: 40%;
+    max-height: 40%;
+    display: block;
+    margin-bottom: 20px; /* Отступ снизу */
 }
+
 
 .pik0-image {
     max-width: 50%;
@@ -289,3 +351,35 @@ main {
     display: block;
 }
 
+.table {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.task-column {
+    flex: 1;
+    min-width: 250px; /* Минимальная ширина колонки */
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+.task-column:not(:last-child) {
+    border-right: none; /* Убираем правую рамку у всех колонок, кроме последней */
+}
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+}
+.checkbox {
+    margin-right: 10px;
+}
