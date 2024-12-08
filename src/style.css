@@ -25,7 +25,6 @@ h1 {
 
 #add-task-form input[type="text"],
 #add-task-form input[type="submit"],
-.delete-button,
 a button {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
@@ -214,6 +213,10 @@ main {
         max-width: none;
         margin: 20px 40px;
     }
+    .task-item button {
+        width: 100%; /* Кнопки занимают полную ширину */
+        margin-top: 5px; /* Отступ между кнопками */
+    }
 
 }
 
@@ -316,8 +319,31 @@ h3 {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
-    padding: 5px;
-   
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Добавляем разделитель между задачами */
+    flex-wrap: wrap; /* Позволяет элементам обтекать друг друга при уменьшении ширины */
    
 
 }
+.edit-button,
+.delete-button {
+    margin-left: 10px; /* Отступ между кнопками */
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   
+}
+.edit-button,
+.delete-button {
+    margin-left: 10px; /* Отступ между кнопками */
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 100px; /* Максимальная ширина кнопок */
+    flex-shrink: 0; /* Запретить сжатие кнопок */
+  
+}
+
+
