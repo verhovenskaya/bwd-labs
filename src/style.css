@@ -3,6 +3,9 @@ body {
     background-color: #fff;
     color: #000;
     margin: 0;
+    display: grid;
+    place-items: center; /* Центрирует содержимое по горизонтали и вертикали */
+    height: 100vh; /* Занимает всю высоту viewport */
 }
 
 h1 {
@@ -53,42 +56,6 @@ a button:hover {
     background-color: #272626;
 }
 
-th,
-td {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #3d3d3d;
-}
-
-th {
-    font-size: 24px;
-    background-color: #000;
-    color: #fff;
-}
-
-.completed {
-    text-decoration: line-through;
-    color: gray;
-}
-
-.in-progress {
-    font-style: italic;
-}
-
-.task-column {
-    width: 33.33%;
-}
-
-.task {
-    display: flex;
-    align-items: center;
-}
-
-.task-name {
-    margin-right: 10px;
-}
-
-
 .checkbox {
     margin-right: 10px;
     accent-color: #000000;
@@ -133,7 +100,7 @@ nav a {
     text-decoration: none;
     color: #F0F0F0;
     padding: 5px 10px;
-    border-radius: 5px;
+
 }
 
 nav li.active a {
@@ -192,7 +159,7 @@ main {
     color: #333333;
 }
 
-   
+
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
@@ -230,76 +197,29 @@ main {
     .content {
         flex-direction: column;
     }
+
+
     h3 {
-        font-size: 20px; /* Уменьшаем размер заголовка */
+        font-size: 20px;
+        /* Уменьшаем размер заголовка */
     }
-    
+
     .table {
         flex-direction: column; /* Смена направления на вертикальное */
         align-items: center; /* Центрирование колонок по горизонтали */
     }
 
     .task-column {
-        width: 100%; /* Колонки занимают всю ширину */
-        max-width: none; /* Убираем максимальную ширину для маленьких экранов */
-        margin-bottom: 20px; /* Отступ между колонками */
+        width: calc(100% - 80px); /* Ширина колонки с отступами по 40px с каждой стороны */
+        max-width: none;
+        margin: 20px 40px;
     }
 
 }
 
-@media (max-width: 375px) {
-    .nav-links {
-        position: fixed;
-        background-color: #000;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        transform: translateX(200%);
-        z-index: 1000;
-        font-size: 28px;
-    }
 
-    .nav-links.active {
-        transform: translateX(0);
-    }
 
-    .menu-icon {
-        display: block;
-        margin-right: 10px;
-        font-size: 40px;
-        color: #F0F0F0;
-    }
 
-    .close-icon {
-        display: block;
-        font-size: 40px;
-        color: #F0F0F0;
-    }
-
-    .content {
-        flex-direction: column;
-    }
-    h3 {
-        font-size: 20px; /* Уменьшаем размер заголовка */
-    }
-    
-    .table {
-        flex-direction: column; /* Смена направления на вертикальное */
-        align-items: center; /* Центрирование колонок по горизонтали */
-    }
-
-    .task-column {
-        width: 100%; /* Колонки занимают всю ширину */
-        max-width: none; /* Убираем максимальную ширину для маленьких экранов */
-        margin-bottom: 20px; /* Отступ между колонками */
-    }
-
-}
 
 .main-content {
     text-align: center;
@@ -317,7 +237,8 @@ main {
     max-width: 40%;
     max-height: 40%;
     display: block;
-    margin-bottom: 20px; /* Отступ снизу */
+    margin-bottom: 20px;
+    /* Отступ снизу */
 }
 
 
@@ -351,35 +272,52 @@ main {
     display: block;
 }
 
+h3 {
+    border: 1px solid #3a3939;
+    background-color: #000000;
+    padding: 10px 0;
+    text-align: center;
+    color: #F0F0F0;
+    width: 100%; /* Занимает всю ширину колонки */
+    box-sizing: border-box; /* Учитывает padding в ширину */
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
 .table {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
 }
+
 .task-column {
     flex: 1;
-    min-width: 250px; /* Минимальная ширина колонки */
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    min-width: 250px;
+    margin: 0px;
+    box-sizing: border-box;
 }
-.task-column:not(:last-child) {
-    border-right: none; /* Убираем правую рамку у всех колонок, кроме последней */
-}
+
 .task-list {
-    list-style-type: none;
-    padding: 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 100%; /* Важно для правильного выравнивания */
+    box-sizing: border-box;
+    margin-top: -20px;
 }
+
 .task-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
     padding: 5px;
-    border: 1px solid #e0e0e0;
-    border-radius: 3px;
-}
-.checkbox {
-    margin-right: 10px;
+   
+   
+
 }

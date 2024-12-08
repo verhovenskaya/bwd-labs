@@ -41,4 +41,3 @@ document.getElementById('burger-menu').addEventListener('click', function () {
     var sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('active');
 });
-
