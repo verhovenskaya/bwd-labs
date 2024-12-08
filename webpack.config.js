@@ -1,44 +1,86 @@
-const path = require('path'); // Импортируем модуль "path" для работы с путями файлов
+const path = require('path'); 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin'); 
+
+
 
 
 module.exports = {
-   entry: './src/index.js', // Точка входа для сборки проекта
+    entry: './src/index.js', 
 
 
-   output: {
-       filename: 'bundle.js', // Имя выходного файла сборки
-       path: path.resolve(__dirname, 'dist'), // Путь для выходного файла сборки
-   },
+    output: {
+        filename: 'bundle.js', 
+        path: path.resolve(__dirname, 'dist'), 
+    },
 
 
-   module: {
-       rules: [
-           {
-               test: /\.css$/, // Регулярное выражение для обработки файлов с расширением .css
-               use: ['style-loader', 'css-loader'], // Загрузчики, используемые для обработки CSS-файлов
-           },
-       ],
-   },
+    module: {
+        rules: [
+            {
+                test: /\.css$/, 
+                use: ['style-loader', 'css-loader'], 
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/, 
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'img/',
+
+                        },
+                    },
+                ],
+            }
+        ],
+    },
 
 
-   plugins: [
-       new HtmlWebpackPlugin({
-           template: './src/index.html',
-           inject: true,
-           chunks: ['index'],
-           filename: 'index.html'
-       }),
-   ],
+
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                { from: './src/img/logo.png', to: 'dist' }, 
+            ],
+        }),
+
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            inject: true,
+            chunks: ['index'],
+            filename: 'index.html'
+        }),
+
+        new HtmlWebpackPlugin({
+            template: './src/projects.html',
+            inject: true,
+            chunks: ['index'],
+            filename: 'projects.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/about.html',
+            inject: true,
+            chunks: ['index'],
+            filename: 'about.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/list.html',
+            inject: true,
+            chunks: ['index'],
+            filename: 'list.html'
+        }),
+    ],
 
 
-   devServer: {
-       static: {
-           directory: path.join(__dirname, 'dist'), // Каталог для статики
-       },
-       open: true, // Автоматически открывать браузер
-   },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'), 
+        },
+        open: true, 
+    },
 
 
-   mode: 'development', // Режим сборки
+    mode: 'development', 
 };

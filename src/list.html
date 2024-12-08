@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/logo.png">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="главная.html" class="logo" id="logo">
+                <img src="img/logo.png" alt="Логотип" width="60px" height="60px">
+            </a>
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li class="active"><a href="list.html">Список задач</a></li>
+                <li><a href="about.html">О приложении</a></li>
+                <li>
+                    <div class="close-icon" id="close-icon">&times;</div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Список задач </h1>
+
+    <a>
+        <div style="text-align: center;">
+            <button id="openDialogButton">Добавить задачу</button>
+        </div>
+        
+        <dialog id="myDialog">
+            <h2 style="text-align: center;"> Добавить задачу</h2>
+            <form action="#" method="get" id="add-task-form">
+                <label for="task-input">Введите задачу:</label><br>
+                <input type="text" id="task-input" name="task-input"><br><br>
+                <button type="submit">Добавить</button>
+            </form>
+            <button id="closeDialogButton">Закрыть</button>
+        </dialog>
+
+        <script src="js/script.js"></script>
+        <script src="bundle.js"></script>
+    </a>
+
+    
+    <table id="taskTable">
+        <thead>
+            <tr>
+                <th>Задачи</th>
+                <th>В работе</th>
+                <th>Выполненные</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    <span class="checkbox">
+                        <input type="checkbox">
+                    </span>
+                    Вынести мусор
+                    <button class="delete-button">Удалить</button>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="checkbox">
+                        <input type="checkbox">
+                    </span>
+                    Записаться к врачу
+                    <button class="delete-button">Удалить</button>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="in-progress">
+                    <span class="checkbox">
+                        <input type="checkbox">
+                    </span>
+                    Сдать лабу по ОВР
+                    <button class="delete-button">Удалить</button>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="in-progress">
+                    <span class="checkbox">
+                        <input type="checkbox">
+                    </span>
+                    Разобрать первые 3 лабораторные по численным методам
+                    <button class="delete-button">Удалить</button>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="in-progress">
+                    <span class="checkbox">
+                        <input type="checkbox">
+                    </span>
+                    Отчет для курсовой
+                    <button class="delete-button">Удалить</button>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="completed">
+                    <span class="checkbox">
+                        <input type="checkbox" checked disabled>
+                    </span>
+                    Разобрать полку с книгами
+                    <button class="delete-button">Удалить</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+
+</html>
